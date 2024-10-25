@@ -1,4 +1,4 @@
+logging
 boto3
 Flask
 psycopg2-binary
-logging
