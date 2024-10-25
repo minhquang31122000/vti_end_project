@@ -18,3 +18,16 @@ spec:
         image: 084375555299.dkr.ecr.ap-southeast-1.amazonaws.com/mq-peter-python-app:latest
         ports:
         - containerPort: 5000
+        env:
+        - name: MQ_PETER_PYTHON_APP_ENV
+          value: "development"
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            configMapKeyRef:
+              name: aws-credentials
+              key: AWS_ACCESS_KEY_ID
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: aws-credentials
+              key: AWS_SECRET_ACCESS_KEY
