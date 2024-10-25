@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mq-peter-python-app
+  namespace: mq-peter-python-app-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mq-peter-python-app
+  template:
+    metadata:
+      labels:
+        app: mq-peter-python-app
+    spec:
+      containers:
+      - name: mq-peter-python-app
+        image: 084375555299.dkr.ecr.ap-southeast-1.amazonaws.com/mq-peter-python-app:latest
+        ports:
+        - containerPort: 5000

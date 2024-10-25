@@ -7,5 +7,9 @@ WORKDIR /app
 # Copy the current directory contents into the container
 COPY . /app
 
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
+
 # Run the application
 CMD ["python", "main.py"]
