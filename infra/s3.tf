@@ -1,10 +1,10 @@
 
 resource "aws_s3_bucket" "s3_bucket_hosting" {
-  bucket = "minhquang-s3-bucket-hosting"
+  bucket = "mq-peter-s3-bucket-hosting"
 
   tags = {
-    Name  = "minhquang s3 bucket hosting"
-    Owner = "minhquang"
+    Name  = "MQ Peter s3 bucket hosting"
+    Owner = "mq-peter"
   }
 }
 

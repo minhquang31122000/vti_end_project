@@ -1,5 +1,5 @@
 variable "vpc_id" {
-  default = "vpc-04a4803405e1065f7"
+  default = "vpc-095acf87b7fb3a939"
 
 }
 variable "cidr_allow" {
@@ -14,11 +14,11 @@ variable "rd_pwd_postgre" {
 
 }
 variable "identifier_db" {
-  default = "minhquang-rds-postgres"
+  default = "mq-peter-rds-postgres"
 }
 
 variable "db_name" {
-  default = "minhquang_rds_postgres_db"
+  default = "mq_peter_rds_postgres_db"
 }
 variable "enginedb" {
   default = "postgres"
@@ -48,7 +48,7 @@ variable "availability_zone" {
   default = "ap-southeast-1a"
 }
 variable "db_subnet_group_name" {
-  default = "minhquang-db-subnet-gr"
+  default = "mq-peter-db-subnet-gr"
 }
 variable "skip_final_snapshot" {
   default = true
@@ -80,7 +80,7 @@ variable "backup_retention_period" {
 }
 variable "tags" {
   default = {
-    Name = "minhquang-rds-postgres"
+    Name = "mq-peter-rds-postgres"
   }
 }
 variable "storage_credential_to_ssm" {

@@ -1,7 +1,7 @@
 #create the security group for rds instance
 resource "aws_security_group" "sg_rds_postgres_instance" {
   vpc_id      = var.vpc_id
-  name        = "MinhQuang SG RDS INSTANCE"
+  name        = "MinhQuang Peter SG RDS INSTANCE"
   description = "Allow app can access into the rds instance"
   ingress {
     description = "Allow all subnet in the vpc can accessable"
@@ -21,7 +21,7 @@ resource "aws_security_group" "sg_rds_postgres_instance" {
 
 #crate the db parameter group
 resource "aws_db_parameter_group" "dbpg_rds_postgres" {
-  name        = "minhquang-postgres-pg"
+  name        = "mq-peter-postgres-pg"
   family      = "postgres16"
   description = "postgres16 description"
 }
@@ -108,8 +108,8 @@ resource "aws_ssm_parameter" "default_postgres_ssm_parameter_password" {
 }
 resource "aws_ssm_parameter" "default_postgres_db_name" {
   count     = var.storage_credential_to_ssm ? 1 : 0
-  name      = format("/rds/db/%s/dbname", var.db_name)
-  value     = aws_db_instance.rds_postgre_db.password
+  name      = format("/rds/db/%s/dbname", var.identifier_db)
+  value     = aws_db_instance.rds_postgre_db.db_name
   type      = "String"
   tags      = var.tags
   overwrite = true

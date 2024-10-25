@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "python_app_repo" {
-  name                 = "python-app-repo"
+  name                 = "mq-peter-python-app"
   image_tag_mutability = "MUTABLE"
 }
 
