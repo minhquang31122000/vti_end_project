@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 # Hàm lấy thông tin credentials từ SSM
 def get_ssm_parameters():
-    ssm_client = boto3.client('ssm', region_name='ap-southeast-1')  # Đảm bảo cấu hình region
+    ssm_client = boto3.client('ssm', region_name='ap-southeast-1',aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"))  
+    
     db_username = ssm_client.get_parameter(Name='/rds/db/mq-peter-rds-postgres/superuser/username')['Parameter']['Value']
     db_password = ssm_client.get_parameter(Name='/rds/db/mq-peter-rds-postgres/superuser/password', WithDecryption=True)['Parameter']['Value']
     db_host_full =ssm_client.get_parameter(Name='/rds/db/mq-peter-rds-postgres/endpoint')['Parameter']['Value']
